@@ -18,10 +18,12 @@ Usage of ./lmsensors_exporter:
   -telemetry.path string
         URL path for surfacing collected metrics (default "/metrics")
 ```
-
-
-ADD: install Service HOWTO
+  
+  
+  
 -----
+  
+ADD: install Service HOWTO
 # systemd service install
 ## lm-sensors install
 ```
