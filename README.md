@@ -32,6 +32,7 @@ yes | sudo sensors-detect
 ## exporter download
 ```
 ARCH=arm64
+# or amd64
 sudo wget https://github.com/letwir/lmsensors_exporter/releases/download/0.1.1/lmsensors_exporter-$ARCH -O /usr/local/bin/lmsensors_exporter
 sudo chmod +x /usr/local/bin/lmsensors_exporter
 ```
