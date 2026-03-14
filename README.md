@@ -18,3 +18,46 @@ Usage of ./lmsensors_exporter:
   -telemetry.path string
         URL path for surfacing collected metrics (default "/metrics")
 ```
+
+
+ADD: install Service HOWTO
+-----
+# systemd service install
+## lm-sensors install
+```
+sudo apt-get update
+sudo apt-get install lm-sensors
+yes | sudo sensors-detect
+```
+## exporter download
+```
+ARCH=arm64
+sudo wget https://github.com/letwir/lmsensors_exporter/releases/download/0.1.1/lmsensors_exporter-$ARCH -O /usr/local/bin/lmsensors_exporter
+sudo chmod +x /usr/local/bin/lmsensors_exporter
+```
+## enable service
+```
+sudo tee /etc/systemd/system/lmsensors_exporter.service << EOF
+[Unit]
+Description=lmsensors exporter service
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/lmsensors_exporter
+User=root
+Group=root
+SyslogIdentifier=lmsensors_exporter
+Restart=on-failure
+RemainAfterExit=no
+RestartSec=100ms
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl enable lmsensors_exporter.service
+sudo systemctl start lmsensors_exporter.service
+```
