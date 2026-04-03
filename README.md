@@ -22,7 +22,12 @@ Usage of ./lmsensors_exporter:
   
   
 -----
-  
+
+lm_sensors exporterをArm64にも対応させたフォークです。
+お手持ちのSingle Board ComputerやMacOSなどでもネイティブに動くGo製アプリです。
+元々のリポジトリはx86_64のバイナリのみだったので、微修正してarm64にも対応しました。
+armhfはビルドを通していないため未確認です。
+
 ADD: install Service HOWTO
 # systemd service install
 ## lm-sensors install
