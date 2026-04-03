@@ -25,7 +25,10 @@ Usage of ./lmsensors_exporter:
 
 lm_sensors exporterをArm64にも対応させたフォークです。
 お手持ちのSingle Board ComputerやMacOSなどでもネイティブに動くGo製アプリです。
-元々のリポジトリはx86_64のバイナリのみだったので、微修正してarm64にも対応しました。
+  
+自宅監視基盤を amd64 / arm64 混在環境で統一運用するため、
+既存Exporterのままでは不足していた arm64 対応を補完する目的でフォークしました。
+  
 armhfはビルドを通していないため未確認です。
 
 ADD: install Service HOWTO
